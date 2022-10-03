@@ -3,7 +3,7 @@
 @use 'mixins';
 
 .main-container{
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 375px;
     margin: auto;
     &__background-section{
@@ -82,6 +82,7 @@
 }
 
 .form{
+    // display: none;
     &__label{
         text-transform: uppercase;
         font-size: 0.65em;
@@ -94,10 +95,111 @@
     }
     &__input{
         width: 100%;
+        height: 40px;
         margin-bottom: 18px;
         border-radius: 4px;
         font-family: variables.$font;
         border: 1px solid variables.$Light-grayish-violet;
         padding-left: 10px;
+        font-size: 1em;
+        outline: none;
+        &::placeholder{
+            color: variables.$Light-grayish-violet;
+        }
     }
+    &__date-cvc{
+        // border: 2px solid blue;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 16px;
+    }
+    &__date{
+        display: flex;
+        gap: 0 10px;
+    }
+
+    &__submit{
+        background-color: variables.$Very-dark-violet;
+        color: variables.$Light-grayish-violet;
+        width: 100%;
+        height: 50px;
+        border-radius: 8px;
+        font-size: 1em;
+        letter-spacing: 1px;
+        font-family: variables.$font;
+        &:hover{
+            cursor: pointer;
+            background-color: variables.$Light-grayish-violet;
+            color: variables.$Very-dark-violet;
+        }
+    }
+    @media (min-width: 1440px) {
+        margin-top: 180px;
+        width: 385px;
+        &__input{
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.error{
+    color: variables.$Red;
+    margin: -10px 0 18px;
+    font-size: 0.6em;
+}
+
+.form__errors-container{
+    // border: 1px solid blue;
+    display: flex;
+    gap: 5px;
+
+}
+
+.form__errors-container div{
+    // border: 1px solid blue;
+    display: flex;
+    width: 100px;
+    text-align: center;
+}
+
+.thanks-section{
+    // border: 1px solid blue;
+    display: none;
+    width: 375px;
+    margin: auto;
+    margin-bottom: 30px;
+    &__img{
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    &__title{
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 4px;
+        color: variables.$Very-dark-violet;
+        margin-bottom: 24px;
+    }
+    &__text{
+        text-align: center;
+        color: variables.$Dark-grayish-violet;
+        font-size: 1.1em;
+        margin-bottom: 24px;
+    }
+    &__button{
+        @extend .form__submit;
+    }
+
+    @media (min-width: 1440px) {
+        margin-top: 180px;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
 }
